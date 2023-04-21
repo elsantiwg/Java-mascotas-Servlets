@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Retirar Mascota</title>
+        <link href="retirarMascotac.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <h1>Retirar Mascota</h1>
+        <form action="/ControladorMascotasServlet" method="get">
+            <input type="hidden" name="accion" value="retirarMascota">
+            <label for="indice">Índice de la Mascota:</label>
+            <input type="number" name="indice" id="indice"><br>
+            <input type="submit" value="Retirar Mascota">
+        </form>
+    </body>
+</html>

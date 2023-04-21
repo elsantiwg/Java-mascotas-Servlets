@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Agregar Mascota</title>
+        <link href="agregarMascotac.css" rel="stylesheet" type="text/css"/>
+        <script>
+            window.onload = function() {
+                var tipoSelect = document.getElementById("tipo");
+                var caninoDiv = document.getElementById("canino");
+                var felinoDiv = document.getElementById("felino");
+
+                tipoSelect.onchange = function() {
+                    if (tipoSelect.value === "canino") {
+                        caninoDiv.style.display = "block";
+                        felinoDiv.style.display = "none";
+                    } else if (tipoSelect.value === "felino") {
+                        caninoDiv.style.display = "none";
+                        felinoDiv.style.display = "block";
+                    }
+                };
+
+                tipoSelect.onchange();
+            };
+        </script>
+    </head>
+    <body>
+        <h1>Agregar Mascota</h1>
+        <form action="/ControladorMascotasServlet" method="get">
+            <input type="hidden" name="accion" value="agregarMascota">
+            <label for="tipo">Tipo:</label>
+            <select name="tipo" id="tipo">
+                <option value="canino">Canino</option>
+                <option value="felino">Felino</option>
+            </select><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre"><br>
+            <label for="raza">Raza:</label>
+            <input type="text" name="raza" id="raza"><br>
+            <label for="color">Color:</label>
+            <input type="text" name="color" id="color"><br>
+            <label for="edad">Edad:</label>
+            <input type="number" name="edad" id="edad"><br>
+            <div id="canino">
+                <label for="nivelEntrenamiento">Nivel de Entrenamiento:</label>
+                <input type="number" name="nivelEntrenamiento" id="nivelEntrenamiento"><br>
+            </div>
+            <div id="felino">
+                <label for="libreToxoplasmosis">Libre de Toxoplasmosis:</label>
+                <input type="checkbox" name="libreToxoplasmosis" id="libreToxoplasmosis"><br>
+            </div>
+            <input type="submit" value="Agregar Mascota">
+        </form>
+    </body>
+</html>
